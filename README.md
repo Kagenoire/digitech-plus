@@ -1,17 +1,77 @@
-# digitech_plus
+# Digitech+
 
-A new Flutter project.
+Aplikasi Android companion untuk mahasiswa **Universitas Teknologi Digital**, dibuat karena e-learning resmi kampus tidak memiliki sistem notifikasi.
 
-## Getting Started
+> Dibuat oleh mahasiswa Informatika Universitas Teknologi Digital sebagai solusi pribadi.
+> Bukan produk resmi kampus.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Fitur
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- **Notifikasi tugas baru** saat dosen mengupload assignment
+- **Pengingat deadline** H-24 jam dan H-3 jam sebelum batas waktu
+- **Notifikasi presensi dibuka** secara real-time (delay maks 15 menit)
+- **Notifikasi tugas terlewat** jika deadline sudah lewat
+- **Background sync** otomatis setiap 15 menit via WorkManager
+- **Auto-refresh** saat app dibuka kembali dari background
+- Login via WebView (mendukung captcha e-learning kampus)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## Install APK
+
+1. Download file APK dari [Releases](../../releases)
+2. Aktifkan **Install dari sumber tidak dikenal** di pengaturan HP
+3. Install dan buka app
+4. Login menggunakan akun e-learning kampus seperti biasa
+5. Izinkan notifikasi dan battery optimization saat diminta
+
+---
+
+## Build dari Source
+
+**Requirement:**
+- Flutter SDK 3.12+
+- Android SDK (min API 21)
+- Java 17
+
+```bash
+git clone https://github.com/Kagenoire/digitech-plus.git
+cd digitech-plus
+flutter pub get
+flutter build apk --release
+```
+
+APK output: `build/app/outputs/flutter-apk/app-release.apk`
+
+---
+
+## Cara Kerja
+
+App ini bekerja dengan cara **scraping** halaman e-learning kampus menggunakan cookie sesi (`ci_session`) yang diambil setelah login via WebView. Tidak ada API resmi yang digunakan.
+
+Konsekuensinya: jika kampus mengubah tampilan atau struktur halaman e-learning, beberapa fitur bisa berhenti bekerja sampai parser diperbarui.
+
+---
+
+## Stack
+
+| Komponen | Library |
+|---|---|
+| HTTP & scraping | `http`, `html` |
+| Login WebView | `webview_flutter` |
+| Notifikasi lokal | `flutter_local_notifications` |
+| Background sync | `workmanager` |
+| Penyimpanan sesi | `flutter_secure_storage` |
+| State sync | `shared_preferences` |
+
+---
+
+## Lisensi
+
+MIT License dengan klausul attribution.
+
+Siapapun boleh menggunakan, memodifikasi, dan mendistribusikan app ini **dengan syarat mencantumkan kredit kepada pembuat asli** (mahasiswa Universitas Teknologi Digital) dan **tidak mengklaim sebagai karya pihak kampus atau institusi manapun**.
+
+Lihat file [LICENSE](LICENSE) untuk detail lengkap.
