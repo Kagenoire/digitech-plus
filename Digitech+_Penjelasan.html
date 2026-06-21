@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digitech+ Penjelasan Lengkap</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #fff; line-height: 1.7; }
+  .cover { background: #00897B; color: white; padding: 60px 48px 48px; }
+  .cover h1 { font-size: 42px; font-weight: 800; letter-spacing: -1px; }
+  .cover h1 span { color: #80CBC4; }
+  .cover p { font-size: 15px; opacity: 0.8; margin-top: 8px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover .meta { margin-top: 32px; font-size: 13px; opacity: 0.65; }
+  .content { max-width: 780px; margin: 0 auto; padding: 48px 32px; }
+  h2 { font-size: 22px; font-weight: 700; color: #00897B; margin-top: 40px; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid #e0f2f1; }
+  h3 { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-top: 18px; margin-bottom: 6px; }
+  p { font-size: 14px; color: #333; margin-bottom: 10px; }
+  ul, ol { padding-left: 20px; margin-bottom: 10px; }
+  li { font-size: 14px; color: #333; margin-bottom: 5px; }
+  .badge { display: inline-block; background: #e0f2f1; color: #00695C; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin: 2px; }
+  .badge.red { background: #fce4ec; color: #b71c1c; }
+  .badge.blue { background: #e3f2fd; color: #1565c0; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+  th { background: #e0f2f1; color: #00695C; padding: 9px 12px; text-align: left; font-weight: 700; }
+  td { padding: 8px 12px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .callout { background: #f9fbe7; border-left: 4px solid #c6ca53; padding: 12px 16px; border-radius: 4px; margin: 14px 0; font-size: 13px; }
+  .callout.green { background: #e8f5e9; border-color: #4CAF50; }
+  .callout.red { background: #fce4ec; border-color: #e91e63; }
+  .callout.blue { background: #e3f2fd; border-color: #2196F3; }
+  @media print {
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    h2 { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>Digitech<span>+</span></h1>
+  <p>E-Learning Companion - Universitas Teknologi Digital</p>
+  <div class="meta">Dokumen Penjelasan Aplikasi &nbsp;·&nbsp; Dibuat Juni 2026</div>
+</div>
+
+<div class="content">
+
+  <h2>1. Apa Itu Digitech+?</h2>
+  <p>
+    Digitech+ adalah aplikasi Android yang dibuat khusus untuk mahasiswa Universitas Teknologi Digital sebagai
+    <strong>pelengkap e-learning kampus</strong> (elearning.digitechuniversity.ac.id).
+  </p>
+  <p>
+    E-learning kampus tidak memiliki fitur notifikasi. Mahasiswa harus buka website sendiri untuk tahu apakah ada tugas baru,
+    deadline yang mendekat, atau presensi yang harus dilakukan. Digitech+ mengisi kekosongan ini dengan mengirimkan
+    notifikasi secara otomatis langsung ke HP.
+  </p>
+  <div class="callout green">
+    <strong>Singkatnya:</strong> Digitech+ adalah jembatan antara e-learning kampus dan notifikasi HP kamu.
+    Aplikasinya bekerja di background sehingga kamu tidak perlu buka app untuk mendapat informasi terbaru.
+  </div>
+
+  <h2>2. Fitur Utama</h2>
+  <table>
+    <tr><th>Fitur</th><th>Keterangan</th></tr>
+    <tr><td><strong>Notifikasi Tugas Baru</strong></td><td>Otomatis muncul saat ada tugas baru di e-learning, maksimal 15 menit setelah dosen mengupload.</td></tr>
+    <tr><td><strong>Reminder Deadline H-24</strong></td><td>Alarm bunyi 24 jam sebelum deadline tugas. Bunyi meski HP silent.</td></tr>
+    <tr><td><strong>Reminder Deadline H-3</strong></td><td>Alarm bunyi 3 jam sebelum deadline. Bunyi meski HP silent.</td></tr>
+    <tr><td><strong>Notifikasi Presensi</strong></td><td>Notif langsung saat dosen membuka presensi di kelas. Bunyi meski HP silent.</td></tr>
+    <tr><td><strong>Notifikasi Tugas Terlewat</strong></td><td>Memberitahu jika ada tugas yang sudah melewati deadline tanpa dikumpulkan.</td></tr>
+    <tr><td><strong>Notifikasi Sesi Habis</strong></td><td>Memberitahu jika login perlu diperbarui agar notifikasi tidak berhenti.</td></tr>
+    <tr><td><strong>Lihat Daftar Tugas</strong></td><td>Tab Tugas menampilkan semua tugas: Todo, Missed, dan Submitted, lengkap dengan info matkul dan deadline.</td></tr>
+    <tr><td><strong>Lihat Status Presensi</strong></td><td>Tab Presensi menampilkan status presensi per pertemuan di setiap mata kuliah.</td></tr>
+  </table>
+
+  <h2>3. Dibuat dengan Bahasa/Teknologi Apa?</h2>
+
+  <h3>Bahasa Pemrograman</h3>
+  <p>
+    <span class="badge blue">Dart</span> bahasa utama untuk seluruh logika aplikasi dan tampilan UI.<br>
+    <span class="badge blue">Kotlin</span> kode native Android untuk mengambil cookie WebView dan kontrol baterai.
+  </p>
+
+  <h3>Framework</h3>
+  <p>
+    <span class="badge">Flutter 3.44</span> framework dari Google untuk membuat aplikasi Android dari satu codebase.
+    Flutter dikompilasi langsung ke kode native ARM, bukan berjalan di atas JavaScript atau browser.
+  </p>
+
+  <h3>Package / Library Utama</h3>
+  <table>
+    <tr><th>Package</th><th>Kegunaan</th></tr>
+    <tr><td><code>webview_flutter</code></td><td>Menampilkan halaman login e-learning di dalam app agar CAPTCHA bisa diselesaikan manual</td></tr>
+    <tr><td><code>http</code></td><td>Mengirim request ke server e-learning menggunakan cookie sesi</td></tr>
+    <tr><td><code>html</code></td><td>Membaca dan mengurai HTML yang dikembalikan server (scraping)</td></tr>
+    <tr><td><code>flutter_secure_storage</code></td><td>Menyimpan cookie sesi dengan enkripsi menggunakan Android Keystore</td></tr>
+    <tr><td><code>shared_preferences</code></td><td>Menyimpan status tugas yang sudah dilihat atau dinotifikasi</td></tr>
+    <tr><td><code>workmanager</code></td><td>Menjalankan sinkronisasi data secara otomatis di background tiap 15 menit</td></tr>
+    <tr><td><code>flutter_local_notifications</code></td><td>Mengirim notifikasi lokal ke HP dengan dua channel (biasa dan alarm)</td></tr>
+    <tr><td><code>timezone</code></td><td>Menjadwalkan alarm deadline pada waktu yang tepat</td></tr>
+  </table>
+
+  <h2>4. Bagaimana Cara Kerjanya?</h2>
+
+  <h3>Login</h3>
+  <p>
+    Aplikasi membuka halaman web e-learning langsung di dalam app menggunakan WebView. Kamu login seperti biasa
+    dengan NPM, password, dan CAPTCHA. Setelah berhasil, app secara otomatis mengambil cookie sesi (<code>ci_session</code>)
+    dari browser internal dan menyimpannya dengan enkripsi.
+  </p>
+
+  <h3>Sinkronisasi Background</h3>
+  <p>
+    Setiap 15 menit, app menjalankan sync otomatis di background bahkan saat app ditutup:
+  </p>
+  <ol>
+    <li>Kirim request ke server e-learning untuk ambil daftar tugas terbaru</li>
+    <li>Bandingkan dengan data sebelumnya. Kalau ada yang baru, kirim notifikasi</li>
+    <li>Cek setiap mata kuliah untuk status presensi terbaru</li>
+    <li>Kalau presensi baru dibuka, kirim notifikasi alarm</li>
+  </ol>
+
+  <h3>Alarm Deadline</h3>
+  <p>
+    Berbeda dari sync 15 menit, reminder H-24 dan H-3 dijadwalkan sebagai <strong>exact alarm Android</strong>
+    tepat saat tugas pertama kali ditemukan, bukan menunggu sync berikutnya.
+    Ini menjamin notifikasi deadline selalu tepat waktu.
+  </p>
+
+  <h2>5. Info Didapat Darimana?</h2>
+  <div class="callout blue">
+    Semua data diambil langsung dari <strong>server e-learning kampus</strong>
+    (elearning.digitechuniversity.ac.id) menggunakan akun masing-masing pengguna.
+    Tidak ada server perantara atau pihak ketiga yang terlibat.
+  </div>
+  <p>Prosesnya disebut <strong>web scraping</strong>:</p>
+  <ul>
+    <li>App login menggunakan akunmu sendiri (NPM dan password)</li>
+    <li>Cookie sesi yang valid digunakan untuk request ke endpoint yang sama seperti yang diakses browser</li>
+    <li>HTML yang dikembalikan server diurai untuk mengambil data tugas, deadline, dan presensi</li>
+    <li>Data ini hanya tampil di HP-mu sendiri</li>
+  </ul>
+  <div class="callout">
+    <strong>Analogi:</strong> Seperti kamu buka e-learning di browser HP, lalu minta seseorang untuk memonitor
+    halaman itu setiap 15 menit dan kasih tahu kalau ada yang baru. Hanya saja ini terjadi otomatis di HP kamu.
+  </div>
+
+  <h2>6. Apakah Data Disimpan atau Dikirim ke Mana?</h2>
+
+  <table>
+    <tr><th>Data</th><th>Disimpan di</th><th>Dikirim ke pihak lain?</th></tr>
+    <tr><td>Cookie sesi (<code>ci_session</code>)</td><td>HP kamu sendiri dengan enkripsi Android Keystore</td><td>Tidak</td></tr>
+    <tr><td>Daftar tugas yang sudah dilihat</td><td>HP kamu sendiri</td><td>Tidak</td></tr>
+    <tr><td>Status presensi per pertemuan</td><td>HP kamu sendiri</td><td>Tidak</td></tr>
+    <tr><td>NPM &amp; Password</td><td><strong>Tidak disimpan sama sekali</strong></td><td>Tidak</td></tr>
+  </table>
+
+  <div class="callout green">
+    <strong>NPM dan password tidak pernah disimpan oleh Digitech+.</strong>
+    Login dilakukan langsung di halaman web kampus melalui WebView, sama persis seperti login di browser.
+    App hanya menyimpan cookie sesi yang dihasilkan setelah login berhasil.
+  </div>
+
+  <h2>7. Kelebihan</h2>
+  <ul>
+    <li><strong>Gratis dan ringan.</strong> Tidak perlu berlangganan dan tidak perlu internet terus-menerus.</li>
+    <li><strong>Notifikasi otomatis.</strong> Tidak perlu buka app atau website e-learning secara manual.</li>
+    <li><strong>Alarm bunyi meski HP silent.</strong> Notifikasi deadline dan presensi tetap berbunyi bahkan saat HP di-silent.</li>
+    <li><strong>Deadline tepat waktu.</strong> Reminder H-24 dan H-3 dijadwalkan sebagai exact alarm, bukan mengandalkan polling.</li>
+    <li><strong>Privasi terjaga.</strong> Semua data tersimpan di HP sendiri tanpa server perantara.</li>
+    <li><strong>Tidak butuh API resmi.</strong> Bekerja langsung dengan sistem e-learning yang sudah ada.</li>
+    <li><strong>Bekerja di background.</strong> Sync otomatis walau app ditutup atau HP tidak disentuh.</li>
+  </ul>
+
+  <h2>8. Kekurangan</h2>
+  <ul>
+    <li><strong>Notifikasi tidak real-time.</strong> Ada jeda maksimal 15 menit antara dosen upload tugas atau buka presensi dengan notifikasi masuk. Untuk presensi yang dibuka tepat awal kelas, ada risiko notif datang agak terlambat.</li>
+    <li><strong>Harus login ulang secara berkala.</strong> Cookie sesi e-learning kampus akan expire, biasanya dalam rentang 2 sampai 24 jam. Saat itu notifikasi berhenti sampai login ulang. App akan memberi tahu dengan notifikasi khusus.</li>
+    <li><strong>Rentan terhadap perubahan website.</strong> Jika kampus mengubah tampilan HTML e-learning, parsing bisa gagal dan perlu update app manual.</li>
+    <li><strong>Bukan aplikasi resmi kampus.</strong> Tidak ada dukungan resmi dari pihak kampus jika terjadi perubahan sistem.</li>
+    <li><strong>Android only.</strong> Belum ada versi iOS.</li>
+    <li><strong>Distribusi manual.</strong> Belum di Play Store, harus install APK langsung. Tidak ada auto-update.</li>
+    <li><strong>Battery optimizer HP.</strong> Beberapa merek HP seperti Infinix, Xiaomi, dan OPPO secara agresif membatasi background task. Harus izinkan app bypass battery optimization saat pertama kali install.</li>
+  </ul>
+
+  <h2>9. On / Off - Cara Mengontrol Aplikasi</h2>
+
+  <table>
+    <tr><th>Yang Ingin Dilakukan</th><th>Caranya</th></tr>
+    <tr><td>Matikan semua notifikasi sementara</td><td>Settings HP &gt; Notifikasi &gt; Digitech+ &gt; Nonaktifkan</td></tr>
+    <tr><td>Matikan hanya suara alarm deadline</td><td>Settings HP &gt; Notifikasi &gt; Digitech+ &gt; Channel "Deadline &amp; Presensi" &gt; Nonaktifkan suara</td></tr>
+    <tr><td>Hentikan sync background</td><td>Logout dari app lewat menu titik tiga</td></tr>
+    <tr><td>Paksa sync sekarang</td><td>Buka app &gt; titik tiga &gt; Sync Sekarang</td></tr>
+    <tr><td>Test semua notifikasi</td><td>Buka app &gt; titik tiga &gt; Reset &amp; Sync (Test Notif)</td></tr>
+    <tr><td>Uninstall</td><td>Tahan ikon app &gt; Uninstall. Semua data lokal terhapus otomatis.</td></tr>
+  </table>
+
+  <h2>10. Persyaratan</h2>
+  <ul>
+    <li>Android 5.0 (Lollipop) atau lebih baru</li>
+    <li>Akun e-learning kampus yang aktif (NPM dan Password)</li>
+    <li>Koneksi internet untuk sinkronisasi (tidak perlu terus-menerus)</li>
+    <li>Izin notifikasi (diminta otomatis saat pertama login)</li>
+    <li>Izin battery optimization dikecualikan (diminta otomatis, disarankan untuk diizinkan)</li>
+  </ul>
+
+  <div class="callout red" style="margin-top: 40px;">
+    <strong>Disclaimer:</strong> Digitech+ adalah aplikasi tidak resmi yang dibuat oleh mahasiswa untuk mahasiswa.
+    Tidak berafiliasi dengan pihak kampus. Penggunaan dilakukan atas tanggung jawab pengguna masing-masing.
+    Data yang diambil adalah data akun milik pengguna sendiri.
+  </div>
+
+  <p style="margin-top: 40px; font-size: 12px; color: #999; text-align: center;">
+    Digitech+ &nbsp;·&nbsp; Universitas Teknologi Digital &nbsp;·&nbsp; 2026
+  </p>
+
+</div>
+</body>
+</html>
