@@ -2,7 +2,7 @@
 
 Aplikasi Android companion untuk mahasiswa **Universitas Teknologi Digital**, dibuat karena e-learning resmi kampus tidak memiliki sistem notifikasi.
 
-> Dibuat oleh mahasiswa Informatika Universitas Teknologi Digital sebagai solusi pribadi.
+> Dibuat oleh mahasiswa Universitas Teknologi Digital sebagai solusi pribadi.
 > Bukan produk resmi kampus.
 
 ---
@@ -72,6 +72,6 @@ Konsekuensinya: jika kampus mengubah tampilan atau struktur halaman e-learning, 
 
 MIT License dengan klausul attribution.
 
-Siapapun boleh menggunakan, memodifikasi, dan mendistribusikan app ini **dengan syarat mencantumkan kredit kepada pembuat asli** (mahasiswa Universitas Teknologi Digital) dan **tidak mengklaim sebagai karya pihak kampus atau institusi manapun**.
+Siapapun boleh menggunakan, memodifikasi, dan mendistribusikan app ini dengan syarat mencantumkan kredit kepada pembuat asli. Mahasiswa cukup mencantumkan **"Mahasiswa"**; institusi atau pihak kampus wajib mencantumkan **"Mahasiswa Universitas Teknologi Digital"**. Tidak boleh diklaim sebagai karya pihak kampus atau institusi manapun.
 
 Lihat file [LICENSE](LICENSE) untuk detail lengkap.
