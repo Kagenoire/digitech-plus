@@ -37,6 +37,30 @@ class MainActivity : FlutterActivity() {
 
         MethodChannel(
             flutterEngine.dartExecutor.binaryMessenger,
+            "com.digitech/alarm"
+        ).setMethodCallHandler { call, result ->
+            when (call.method) {
+                "ringNow" -> {
+                    val type = call.argument<String>("type") ?: "deadline"
+                    val title = call.argument<String>("title") ?: ""
+                    val body = call.argument<String>("body") ?: ""
+                    val channelId = call.argument<String>("channelId") ?: "digitech_deadline_tugas"
+                    val intent = Intent(this, AlarmActivity::class.java).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        putExtra(AlarmActivity.EXTRA_TYPE, type)
+                        putExtra(AlarmActivity.EXTRA_TITLE, title)
+                        putExtra(AlarmActivity.EXTRA_BODY, body)
+                        putExtra(AlarmActivity.EXTRA_CHANNEL_ID, channelId)
+                    }
+                    startActivity(intent)
+                    result.success(null)
+                }
+                else -> result.notImplemented()
+            }
+        }
+
+        MethodChannel(
+            flutterEngine.dartExecutor.binaryMessenger,
             "com.digitech/cookies"
         ).setMethodCallHandler { call, result ->
             when (call.method) {
