@@ -9,12 +9,16 @@ import 'notification_service.dart';
 import 'scraper_service.dart';
 
 class SyncService {
+  /// Registers the background sync job. Safe to call on every app launch,
+  /// uses [ExistingPeriodicWorkPolicy.keep] so it self-heals if the OS ever
+  /// killed the job (force-stop, aggressive OEM battery managers, etc.)
+  /// without resetting the schedule if it's already running.
   static Future<void> registerPeriodicSync() async {
     await Workmanager().registerPeriodicTask(
       AppConstants.syncTaskName,
       AppConstants.syncTaskTag,
       frequency: const Duration(minutes: 15),
-      existingWorkPolicy: ExistingPeriodicWorkPolicy.update,
+      existingWorkPolicy: ExistingPeriodicWorkPolicy.keep,
       constraints: Constraints(networkType: NetworkType.connected),
     );
   }
@@ -40,7 +44,7 @@ class SyncService {
         await prefs.setBool(AppConstants.prefSessionExpiredShown, true);
       }
     } catch (_) {
-      // Network/parse error — try again next cycle
+      // Network/parse error, try again next cycle
     }
   }
 
@@ -71,6 +75,8 @@ class SyncService {
     SharedPreferences prefs,
   ) async {
     final todoMap = await scraper.fetchTodo();
+    final tugasEnabled =
+        prefs.getBool(AppConstants.prefNotifTugasEnabled) ?? true;
 
     final seenIds = Set<String>.from(
       jsonDecode(prefs.getString(AppConstants.prefSeenIds) ?? '[]') as List,
@@ -94,17 +100,19 @@ class SyncService {
       // Immediate notification for newly seen assignments
       if (!seenIds.contains(key)) {
         seenIds.add(key);
-        await NotificationService.showNewAssignment(a.title, a.courseCode);
+        if (tugasEnabled) {
+          await NotificationService.showNewAssignment(a.title, a.courseCode);
+        }
       }
 
       // Schedule exact H-24 alarm (only once per assignment)
-      if (!scheduled24h.contains(key)) {
+      if (tugasEnabled && !scheduled24h.contains(key)) {
         final ok = await NotificationService.scheduleDeadlineReminder(a, 24);
         if (ok) scheduled24h.add(key);
       }
 
       // Schedule exact H-3 alarm (only once per assignment)
-      if (!scheduled3h.contains(key)) {
+      if (tugasEnabled && !scheduled3h.contains(key)) {
         final ok = await NotificationService.scheduleDeadlineReminder(a, 3);
         if (ok) scheduled3h.add(key);
       }
@@ -116,7 +124,9 @@ class SyncService {
 
       if (!missedIds.contains(key)) {
         missedIds.add(key);
-        await NotificationService.showMissed(a.title, a.courseCode);
+        if (tugasEnabled) {
+          await NotificationService.showMissed(a.title, a.courseCode);
+        }
       }
 
       if (scheduled24h.remove(key)) {
@@ -144,6 +154,8 @@ class SyncService {
     final statusMap = Map<String, String>.from(
       jsonDecode(prefs.getString(AppConstants.prefPresensiStatus) ?? '{}') as Map,
     );
+    final presensiEnabled =
+        prefs.getBool(AppConstants.prefNotifPresensiEnabled) ?? true;
 
     for (final courseId in courseIds) {
       try {
@@ -154,7 +166,7 @@ class SyncService {
           final prevStatus = statusMap[key] ?? 'closed';
           final newStatus = pertemuan.isOpen ? 'open' : 'closed';
 
-          if (prevStatus == 'closed' && newStatus == 'open') {
+          if (prevStatus == 'closed' && newStatus == 'open' && presensiEnabled) {
             await NotificationService.showPresensiOpen(
               result.courseName,
               pertemuan.label,

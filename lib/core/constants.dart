@@ -21,18 +21,28 @@ class AppConstants {
   static const String prefLastSync = 'last_sync_time';
   static const String prefCourseIds = 'cached_course_ids';
 
-  // Regular channel — new assignment notifications
+  static const String prefNotifTugasEnabled = 'notif_tugas_enabled';
+  static const String prefNotifPresensiEnabled = 'notif_presensi_enabled';
+
+  // Regular channel: new assignment notifications
   static const String notifChannelId = 'digitech_sync';
   static const String notifChannelName = 'Tugas Baru';
   static const String notifChannelDesc = 'Notifikasi saat ada tugas baru';
 
-  // Alarm channel — deadline & presensi, plays sound even in silent mode
-  static const String alarmChannelId = 'digitech_alarm';
-  static const String alarmChannelName = 'Deadline & Presensi';
-  static const String alarmChannelDesc =
-      'Pengingat deadline dan presensi — bunyi meski HP silent';
+  // Alarm-style channel: deadline reminders & tugas terlewat, tugas group
+  static const String deadlineChannelId = 'digitech_deadline_tugas';
+  static const String deadlineChannelName = 'Deadline & Tugas';
+  static const String deadlineChannelDesc =
+      'Pengingat deadline dan tugas terlewat, bunyi meski HP silent';
+
+  // Alarm-style channel: presensi dibuka, terpisah agar suara bisa diatur sendiri
+  static const String presensiChannelId = 'digitech_presensi';
+  static const String presensiChannelName = 'Presensi';
+  static const String presensiChannelDesc =
+      'Notifikasi saat presensi mata kuliah dibuka, bunyi meski HP silent';
 
   static const String cookieChannel = 'com.digitech/cookies';
+  static const String notifSettingsChannel = 'com.digitech/notifications';
 
   static const String prefBatteryExemptionAsked = 'battery_exemption_asked';
 }

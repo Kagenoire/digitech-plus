@@ -9,6 +9,7 @@ import '../services/sync_service.dart';
 import 'todo_screen.dart';
 import 'presensi_screen.dart';
 import 'login_screen.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -57,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   Future<void> _checkBatteryExemption() async {
     try {
-      // Only ask once — LoginScreen may have already asked during onboarding
+      // Only ask once, LoginScreen may have already asked during onboarding
       final prefs = await SharedPreferences.getInstance();
       if (prefs.getBool(AppConstants.prefBatteryExemptionAsked) ?? false) return;
 
@@ -111,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(resetSeen
-                ? 'Reset selesai — notifikasi dikirim untuk semua data'
+                ? 'Reset selesai, notifikasi dikirim untuk semua data'
                 : 'Sync selesai'),
             behavior: SnackBarBehavior.floating,
             duration: const Duration(seconds: 3),
@@ -251,6 +252,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   _syncNow();
                 } else if (val == 'reset_sync') {
                   _syncNow(resetSeen: true);
+                } else if (val == 'settings') {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const SettingsScreen()),
+                  );
                 } else if (val == 'logout') {
                   _logout();
                 }
@@ -281,6 +286,17 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       Icon(Icons.notifications_active_outlined, size: 18),
                       SizedBox(width: 8),
                       Text('Reset & Sync (Test Notif)'),
+                    ],
+                  ),
+                ),
+                const PopupMenuDivider(),
+                const PopupMenuItem(
+                  value: 'settings',
+                  child: Row(
+                    children: [
+                      Icon(Icons.notifications_outlined, size: 18),
+                      SizedBox(width: 8),
+                      Text('Pengaturan Notifikasi'),
                     ],
                   ),
                 ),

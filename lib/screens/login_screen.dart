@@ -143,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
         await _cookieChannel.invokeMethod('requestBatteryExemption');
       }
     } catch (_) {
-      // Non-critical — ignore if native method fails
+      // Non-critical, ignore if native method fails
     }
   }
 

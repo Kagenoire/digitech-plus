@@ -70,6 +70,11 @@ class _SplashScreenState extends State<SplashScreen>
     await Future.delayed(const Duration(milliseconds: 1600));
     if (!mounted) return;
     final hasSession = await AuthService.hasSession();
+    if (hasSession) {
+      // Re-register on every launch so a job killed by the OS (force-stop,
+      // aggressive OEM battery managers) is restored without needing re-login.
+      await SyncService.registerPeriodicSync();
+    }
     if (!mounted) return;
     Navigator.of(context).pushReplacement(
       PageRouteBuilder(

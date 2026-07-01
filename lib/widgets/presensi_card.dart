@@ -131,7 +131,7 @@ class _OpenPertemuanBadge extends StatelessWidget {
           const SizedBox(width: 6),
           Text(
             '${pertemuan.label}'
-            '${pertemuan.timeRange.isNotEmpty ? " — ${pertemuan.timeRange}" : ""}',
+            '${pertemuan.timeRange.isNotEmpty ? " - ${pertemuan.timeRange}" : ""}',
             style: const TextStyle(
               color: AppTheme.success,
               fontSize: 12,
